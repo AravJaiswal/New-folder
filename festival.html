@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Festival Event Organizer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 1rem;
+      color: #333;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    button {
+      width: 100%;
+      background: #ffcc00;
+      color: #333;
+      border: none;
+      padding: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ffaa00;
+    }
+
+    .note {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+
+    .success-message {
+      text-align: center;
+      background: rgba(0, 255, 0, 0.2);
+      color: #d4ffd4;
+      padding: 10px;
+      border-radius: 8px;
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 College Festival Event Organizer</h1>
+    <form id="eventForm">
+      <label for="name">Organizer Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="event-name">Event Name:</label>
+      <input type="text" id="event-name" name="event-name" placeholder="Enter the event name" required>
+
+      <label for="category">Category:</label>
+      <select id="category" name="category" required>
+        <option value="">-- Select Category --</option>
+        <option value="music">Music</option>
+        <option value="dance">Dance</option>
+        <option value="drama">Drama</option>
+        <option value="sports">Sports</option>
+        <option value="tech">Tech Fest</option>
+      </select>
+
+      <label for="date">Event Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Event Time:</label>
+      <input type="time" id="time" name="time" required>
+
+      <label for="location">Event Location:</label>
+      <input type="text" id="location" name="location" placeholder="Enter the venue" required>
+
+      <label for="description">Event Description:</label>
+      <textarea id="description" name="description" rows="4" placeholder="Write a short event description..."></textarea>
+
+      <button type="submit">Submit Event</button>
+    </form>
+
+    <div class="success-message" id="successMessage">
+      ✅ Event successfully registered for the college festival!
+    </div>
+
+    <div class="note">Fill out the details to organize your event 🎊</div>
+  </div>
+
+  <script>
+    const form = document.getElementById('eventForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent form from refreshing
+
+      // Simple validation feedback
+      if (form.checkValidity()) {
+        successMessage.style.display = 'block';
+        form.reset(); // Clear form
+
+        // Hide message after 3 seconds
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 3000);
+      }
+    });
+  </script>
+</body>
+</html>
