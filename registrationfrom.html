@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>College Night Party - Registration</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#ff6b6b;
+      --muted:#9ca3af;
+      --glass: rgba(255,255,255,0.04);
+      --radius:12px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:linear-gradient(180deg,#071021 0%, #0b1220 100%);display:flex;align-items:center;justify-content:center;padding:28px}
+
+    .container{width:100%;max-width:920px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;padding:22px;border:1px solid var(--glass);box-shadow:0 10px 40px rgba(2,6,23,0.7)}
+
+    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ff9a9e);display:flex;align-items:center;justify-content:center;font-weight:800;color:white;font-size:20px}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:0;color:var(--muted);font-size:13px}
+
+    form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+
+    .field{display:flex;flex-direction:column;gap:6px}
+    label{font-size:13px;color:var(--muted)}
+    input[type='text'], input[type='email'], input[type='tel'], select, textarea, input[type='number']{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 12px;border-radius:10px;color:#e6eef8;outline:none;font-size:14px
+    }
+    input:focus, select:focus, textarea:focus{border-color:rgba(255,107,107,0.9);box-shadow:0 6px 20px rgba(255,107,107,0.06)}
+
+    .full{grid-column:1 / -1}
+
+    .row{display:flex;gap:12px}
+    .small{flex:1}
+    .btn{
+      background:linear-gradient(90deg,var(--accent),#ff9a9e);border:0;padding:10px 14px;border-radius:12px;color:white;font-weight:700;cursor:pointer
+    }
+
+    .note{font-size:12px;color:var(--muted)}
+
+    .right-panel{background:rgba(255,255,255,0.02);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+
+    .summary{display:flex;flex-direction:column;gap:8px}
+    .summary b{font-size:15px}
+    .line{display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+
+    .terms{display:flex;align-items:center;gap:8px}
+    input[type='checkbox']{width:16px;height:16px}
+
+    .success{display:none;background:linear-gradient(90deg,#0f1724,#082032);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);margin-top:12px}
+
+    footer.form-actions{grid-column:1 / -1;display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+
+    @media (max-width:880px){
+      form{grid-template-columns:1fr}
+      .right-panel{order:99}
+      footer.form-actions{flex-direction:column;gap:8px;align-items:stretch}
+    }
+
+    /* small validation message */
+    .err{color:#ff8b8b;font-size:12px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">CN</div>
+      <div>
+        <h1>College Night Party — Registration</h1>
+        <p class="lead">Fill this short form to register for the college night party. Bring your college ID on entry.</p>
+      </div>
+    </header>
+
+    <form id="regForm" novalidate>
+      <!-- Left column: personal details -->
+      <div class="field">
+        <label for="fullName">Full name *</label>
+        <input id="fullName" name="fullName" type="text" placeholder="Ex: Arav Jaiswal" required />
+        <div class="err" data-for="fullName"></div>
+      </div>
+
+      <div class="field">
+        <label for="college">College / University *</label>
+        <input id="college" name="college" type="text" placeholder="College name" required />
+        <div class="err" data-for="college"></div>
+      </div>
+
+      <div class="field">
+        <label for="roll">Roll number / Student ID *</label>
+        <input id="roll" name="roll" type="text" placeholder="Roll number" required />
+        <div class="err" data-for="roll"></div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" placeholder="you@college.edu" required />
+        <div class="err" data-for="email"></div>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone *</label>
+        <input id="phone" name="phone" type="tel" placeholder="10 digit phone" pattern="[0-9]{10}" required />
+        <div class="err" data-for="phone"></div>
+      </div>
+
+      <div class="field">
+        <label for="dept">Department</label>
+        <select id="dept" name="dept">
+          <option value="CSE">CSE</option>
+          <option value="ECE">ECE</option>
+          <option value="ME">Mechanical</option>
+          <option value="CE">Civil</option>
+          <option value="OTH">Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="year">Year / Class</label>
+        <select id="year" name="year">
+          <option>1st Year</option>
+          <option>2nd Year</option>
+          <option>3rd Year</option>
+          <option>4th Year</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="guests">Number of guests (including you)</label>
+        <input id="guests" name="guests" type="number" min="1" max="5" value="1" />
+      </div>
+
+      <div class="field">
+        <label for="tshirt">T-shirt size (optional)</label>
+        <select id="tshirt" name="tshirt">
+          <option value="">--Select--</option>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+        </select>
+      </div>
+
+      <div class="field full">
+        <label for="notes">Any allergies / food preferences?</label>
+        <textarea id="notes" name="notes" rows="3" placeholder="Veg / Non-veg / Allergies"></textarea>
+      </div>
+
+      <!-- Right column: summary & payment options -->
+      <div class="right-panel">
+        <div class="summary">
+          <b>Registration Summary</b>
+          <div class="line"><span>Event</span><span>College Night Party</span></div>
+          <div class="line"><span>Date</span><span>Fri, 12 Dec 2025</span></div>
+          <div class="line"><span>Venue</span><span>Main Auditorium</span></div>
+          <div class="line"><span>Entry Fee</span><span>₹100 (per person)</span></div>
+          <div style="height:8px"></div>
+
+          <label style="font-size:13px;color:var(--muted)">Payment method</label>
+          <div class="row" style="margin-bottom:8px">
+            <select id="payMethod" name="payMethod" style="flex:1">
+              <option value="onspot">Pay on arrival (Cash)</option>
+              <option value="upi">UPI / QR</option>
+              <option value="online">Online (card/netbanking)</option>
+            </select>
+          </div>
+
+          <div class="line"><span>Amount due</span><span id="amount">₹100</span></div>
+
+          <div class="note">Max 4 guests allowed. Please bring your college ID card.</div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="terms">
+          <input id="agree" name="agree" type="checkbox" required />
+          <label for="agree" class="note">I agree to the <strong>event rules</strong> and grant permission to use photos for college promotions.</label>
+        </div>
+        <div class="err" data-for="agree"></div>
+
+      </div>
+
+      <footer class="form-actions">
+        <div class="note">Need help? Contact event team: events@college.edu</div>
+        <div style="display:flex;gap:8px">
+          <button type="reset" class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.04);font-weight:700">Reset</button>
+          <button type="submit" class="btn">Register</button>
+        </div>
+      </footer>
+
+      <div class="success" id="successBox">
+        <strong>Registration received ✅</strong>
+        <div class="note">We'll send a confirmation email with your QR entry pass. Please show the pass at the entrance.</div>
+      </div>
+
+    </form>
+  </div>
+
+  <script>
+    // Simple client-side validation and dynamic amount calculation
+    const form = document.getElementById('regForm');
+    const guests = document.getElementById('guests');
+    const amount = document.getElementById('amount');
+    const errEls = document.querySelectorAll('.err');
+    const successBox = document.getElementById('successBox');
+
+    const ENTRY_FEE = 100; // per person
+
+    function updateAmount(){
+      const g = Math.max(1, Math.min(5, parseInt(guests.value) || 1));
+      const total = g * ENTRY_FEE;
+      amount.textContent = '₹' + total;
+    }
+
+    guests.addEventListener('input', updateAmount);
+    updateAmount();
+
+    function clearErrors(){
+      errEls.forEach(e => e.textContent = '');
+    }
+
+    function showError(fieldName, msg){
+      const el = document.querySelector(`.err[data-for="${fieldName}"]`);
+      if(el) el.textContent = msg;
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefau
