@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Registration Form</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      width: 350px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #ffcc00;
+      letter-spacing: 1px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px 10px 10px 40px;
+      border: none;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      background: transparent;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus {
+      border-bottom: 2px solid #ffcc00;
+    }
+
+    .input-group label {
+      position: absolute;
+      top: 10px;
+      left: 40px;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+      pointer-events: none;
+      transition: 0.3s ease;
+    }
+
+    .input-group input:focus ~ label,
+    .input-group input:valid ~ label {
+      top: -12px;
+      left: 35px;
+      font-size: 0.8rem;
+      color: #ffcc00;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: linear-gradient(135deg, #ffcc00, #ffaa00);
+      color: #000;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.4s;
+      box-shadow: 0 0 10px #ffcc00;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #ffaa00, #ffcc00);
+      box-shadow: 0 0 20px #ffcc00, 0 0 40px #ffaa00;
+    }
+
+    .success {
+      text-align: center;
+      color: #00ff7f;
+      font-weight: bold;
+      margin-top: 10px;
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @media (max-width: 400px) {
+      .form-container {
+        width: 90%;
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Event Registration</h2>
+    <form id="regForm" onsubmit="return showSuccess()">
+      <div class="input-group">
+        <input type="text" id="name" required>
+        <label for="name">Full Name</label>
+      </div>
+      <div class="input-group">
+        <input type="email" id="email" required>
+        <label for="email">Email</label>
+      </div>
+      <div class="input-group">
+        <input type="tel" id="phone" required>
+        <label for="phone">Phone Number</label>
+      </div>
+      <div class="input-group">
+        <input type="text" id="event" required>
+        <label for="event">Event Name</label>
+      </div>
+      <button type="submit" class="btn">Register</button>
+      <p class="success" id="successMsg">🎉 Registration Successful!</p>
+    </form>
+  </div>
+
+  <script>
+    function showSuccess() {
+      document.getElementById("successMsg").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("successMsg").style.display = "none";
+        document.getElementById("regForm").reset();
+      }, 3000);
+      return false; // Prevent form submission
+    }
+  </script>
+</body>
+</html>
