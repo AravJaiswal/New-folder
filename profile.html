@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile View</title>
+  <style>
+    :root{
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #6366f1;
+      --glass: rgba(99,102,241,0.08);
+      --shadow: 0 6px 20px rgba(18,24,33,0.08);
+      --radius: 14px;
+      --container-width: 920px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing: border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#eef2ff);color:#111827}
+
+    .wrap{
+      max-width:var(--container-width);
+      margin:40px auto;
+      padding:24px;
+    }
+
+    .profile-card{
+      display:grid;
+      grid-template-columns: 220px 1fr;
+      gap:24px;
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+      align-items:center;
+      overflow:hidden;
+    }
+
+    /* left column */
+    .profile-left{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:16px;
+      padding:12px 8px;
+    }
+
+    .avatar{
+      width:140px;height:140px;border-radius:20px;overflow:hidden;border:6px solid var(--glass);display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#eef2ff,#ffffff);
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .name{font-size:20px;font-weight:700}
+    .role{font-size:13px;color:var(--muted)}
+
+    .actions{display:flex;gap:10px;margin-top:4px}
+    .btn{
+      border:0;padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer;display:inline-flex;gap:8px;align-items:center;
+    }
+    .btn-edit{background:linear-gradient(90deg,var(--accent),#8b5cf6);color:white;box-shadow:0 6px 18px rgba(99,102,241,0.18)}
+    .btn-message{background:transparent;border:1px solid #e6e9f2;color:var(--accent)}
+
+    /* right column */
+    .profile-main{padding:8px 4px}
+    .bio{color:var(--muted);line-height:1.5;margin-bottom:12px}
+
+    .stats{
+      display:flex;gap:12px;margin:12px 0;flex-wrap:wrap
+    }
+    .stat{
+      background:linear-gradient(180deg,#fff,#fbfdff);
+      border-radius:12px;padding:12px 14px;min-width:120px;box-shadow:0 4px 12px rgba(15,23,42,0.04);display:flex;flex-direction:column;align-items:flex-start;gap:6px
+    }
+    .stat .num{font-weight:700;font-size:18px}
+    .stat .lbl{font-size:12px;color:var(--muted)}
+
+    .section{margin-top:10px}
+    .section h3{margin:0 0 8px 0;font-size:14px}
+    .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    .info-item{background:#fbfdff;padding:10px;border-radius:10px;border:1px solid #f1f5f9}
+    .info-item small{display:block;color:var(--muted);font-size:12px}
+    .info-item strong{display:block;margin-top:6px}
+
+    .socials{display:flex;gap:10px;margin-top:12px}
+    .socials a{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;border:1px solid #eef2ff;text-decoration:none;color:var(--muted);font-weight:600}
+
+    /* responsive */
+    @media (max-width:720px){
+      .profile-card{grid-template-columns:1fr;}
+      .avatar{width:120px;height:120px}
+      .info-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="profile-card">
+      <div class="profile-left">
+        <div class="avatar">
+          <!-- placeholder avatar -->
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80&auto=format&fit=crop" alt="avatar">
+        </div>
+        <div style="text-align:center">
+          <div class="name">Arav Jaiswal</div>
+          <div class="role">Computer Science Student • Full‑stack Developer</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-edit">Edit Profile</button>
+          <button class="btn btn-message">Message</button>
+        </div>
+      </div>
+
+      <div class="profile-main">
+        <p class="bio">Passionate about building reliable software. Currently studying B.Tech in Computer Science. Loves gym, problem solving and UI design. Open to internships and collaboration.</p>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="num">120+</div>
+            <div class="lbl">Projects</div>
+          </div>
+          <div class="stat">
+            <div class="num">3.9</div>
+            <div class="lbl">GPA</div>
+          </div>
+          <div class="stat">
+            <div class="num">1.2k</div>
+            <div class="lbl">Followers</div>
+          </div>
+          <div class="stat">
+            <div class="num">250</div>
+            <div class="lbl">Following</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>Contact & Details</h3>
+          <div class="info-grid">
+            <div class="info-item">
+              <small>Location</small>
+              <strong>Varanasi, Uttar Pradesh, India</strong>
+            </div>
+            <div class="info-item">
+              <small>Email</small>
+              <strong>arav.jaiswal@example.com</strong>
+            </div>
+            <div class="info-item">
+              <small>Phone</small>
+              <strong>+91 98765 43210</strong>
+            </div>
+            <div class="info-item">
+              <small>Website</small>
+              <strong>arav.dev</strong>
+            </div>
+          </div>
+
+          <div class="socials">
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
