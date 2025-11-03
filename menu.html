@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delicious Bites - Restaurant Menu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #ff7f50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff7f50;
+    }
+
+    .menu-section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .menu-section h2 {
+      text-align: center;
+      color: #ff7f50;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-item {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: 0.3s ease-in-out;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .menu-item h3 {
+      color: #333;
+      margin: 10px 0;
+    }
+
+    .menu-item p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .price {
+      color: #ff7f50;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>🍽️ Delicious Bites - Restaurant Menu</header>
+
+  <nav>
+    <a href="#starters">Starters</a>
+    <a href="#main-course">Main Course</a>
+    <a href="#desserts">Desserts</a>
+    <a href="#beverages">Beverages</a>
+  </nav>
+
+  <section class="menu-section" id="starters">
+    <h2>Starters</h2>
+    <div class="menu-items">
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1606755962773-0e43b372a4d0" alt="Spring Rolls">
+        <h3>Spring Rolls</h3>
+        <p>Crispy rolls stuffed with fresh veggies and spices.</p>
+        <div class="price">₹120</div>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f" alt="Paneer Tikka">
+        <h3>Paneer Tikka</h3>
+        <p>Grilled cottage cheese cubes marinated in spicy sauce.</p>
+        <div class="price">₹180</div>
+      </div>
+    </div>
+  </section
