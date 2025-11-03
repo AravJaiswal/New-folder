@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vacancy Sheet</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .vacancy-container {
+      width: 90%;
+      max-width: 900px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      padding: 20px 30px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #ffcc00;
+      letter-spacing: 1px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    th {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #ffcc00;
+      font-size: 1.1rem;
+    }
+
+    tr:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: 0.3s;
+    }
+
+    .status-open {
+      color: #00ff7f;
+      font-weight: bold;
+    }
+
+    .status-closed {
+      color: #ff6347;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      th {
+        display: none;
+      }
+
+      td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #ffcc00;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="vacancy-container">
+    <h1>College Event Vacancy Sheet</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Department</th>
+          <th>Vacancies</th>
+          <th>Last Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Position">Event Coordinator</td>
+          <td data-label="Department">Cultural</td>
+          <td data-label="Vacancies">5</td>
+          <td data-label="Last Date">10 Nov 2025</td>
+          <td data-label="Status" class="status-open">Open</td>
+        </tr>
+        <tr>
+          <td data-label="Position">Volunteer</td>
+          <td data-label="Department">Technical</td>
+          <td data-label="Vacancies">8</td>
+          <td data-label="Last Date">9 Nov 2025</td>
+          <td data-label="Status" class="status-open">Open</td>
+        </tr>
+        <tr>
+          <td data-label="Position">Stage Manager</td>
+          <td data-label="Department">Management</td>
+          <td data-label="Vacancies">2</td>
+          <td data-label="Last Date">5 Nov 2025</td>
+          <td data-label="Status" class="status-closed">Closed</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
